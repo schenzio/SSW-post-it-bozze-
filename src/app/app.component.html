@@ -1,0 +1,23 @@
+<h1> {{title}} </h1>
+
+<ul>
+  <!-- 
+    *ngFor (abbreviazione di ngForOf) itera sull'array cities e stampa i valori degli oggetti al suoo interno
+  !-->
+  <li *ngFor='let city of cities' > 
+    <button (click)="seleziona(city.nome)">{{city.nome}}</button>
+  </li>
+</ul>
+<!--direttiva *ngIF(condizione)-> visualizza un certo contenuto se la condizione è rispettata-->
+<p *ngIf = "selezionata !== undefined">
+  La citta' selezionata e' {{selezionata}}
+  <button (click) = 'clean()'>Chiudi</button>
+</p>
+
+
+
+<ul>
+  <li *ngFor='let postit of postits'>
+    <p>{{postit.testo}}</p>
+  </li>
+</ul>
