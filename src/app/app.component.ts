@@ -26,7 +26,7 @@ export class AppComponent {
       colore: "black",
       data: "15/04/2021"
     }
-  ]
+  ]/*
   cities = [
     {
       nome: 'Torino',
@@ -38,12 +38,12 @@ export class AppComponent {
       nome: 'Genova',
       temperatura: '18'
     }
-  ];
+  ];*/
   selezionata: string;
   seleziona(name: string) {
     this.selezionata = name;
-  }
+  }/*
   clean() {
     this.selezionata=undefined;
-  }
+  }*/
 }
