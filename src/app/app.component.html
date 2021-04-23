@@ -1,25 +1,19 @@
 <h1> {{title}} </h1>
-<button><b>+</b> nuovo post it</button><br/>
-<textarea></textarea>
-<button>salva</button>
+<button><b>+</b> nuovo</button><br/>
+<app-aggiungi-pi></app-aggiungi-pi>
 <ul>
   <!-- 
-    *ngFor (abbreviazione di ngForOf) itera sull'array cities e stampa i valori degli oggetti al suoo interno
+    *ngFor (abbreviazione di ngForOf) itera sull'array cities e stampa i valori degli oggetti al suo interno
   !-->
-  <li *ngFor='let city of cities' > 
-    <button (click)="seleziona(city.nome)">{{city.nome}}</button>
+  <li *ngFor='let postit of postits'>
+    <!--<p>{{postit.testo.slice(0,9)}}...</p>-->
+    {{postit.testo.slice(0,9)}}... 
+    <button (click)='seleziona(postit.testo)'>apri</button>
   </li>
 </ul>
 <!--direttiva *ngIF(condizione)-> visualizza un certo contenuto se la condizione è rispettata-->
-<p *ngIf = "selezionata !== undefined">
-  La citta' selezionata e' {{selezionata}}
-  <button (click) = 'clean()'>Chiudi</button>
+<p *ngIf = "selezionato !== undefined">
+  {{selezionato}}<br/><button (click) = 'clean()'>Chiudi</button>
 </p>
-
-
-
-<ul>
-  <li *ngFor='let postit of postits'>
-    <p>{{postit.testo}}</p>
-  </li>
-</ul>
+<button (click) = 'test()'>test</button>
+{{barzelletta}}
