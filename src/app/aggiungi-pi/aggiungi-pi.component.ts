@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-aggiungi-pi',
@@ -6,9 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./aggiungi-pi.component.css']
 })
 export class AggiungiPiComponent implements OnInit {
-
+  @Output() newPostEvent = new EventEmitter<string>();
   constructor() { }
-
+  newPost(newName: string) {
+    this.newPostEvent.emit(newName);
+  }
   ngOnInit() {
   }
 

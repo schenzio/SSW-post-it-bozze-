@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-//importo il servizio che ho definito
 import { ChuckService } from './chuck.service';
 
-export class postit{
+export class Postit {
+  titolo: string;
   testo: string
 }
 @Component({
@@ -12,43 +12,45 @@ export class postit{
 })
 export class AppComponent {
   title = 'I miei post-it';
-  postits =[
-    {
-      id: 1,
-      titolo: "",
-      testo: "Il mio primo post-it",
-      colore: "black",
-      data: "15/04/2021"
-    },
-     {
-      id: 2,
-      titolo: "",
-      testo: "Il mio secondo post-it",
-      colore: "black",
-      data: "15/04/2021"
-    },
-     {
-      id:3,
-      titolo: "",
-      testo: "Il mio terzo post-it",
-      colore: "black",
-      data: "15/04/2021"
-    }
-  ]
-  selezionato: string;
+  postits = [1,2,3 ];
+  ids : Array<string> = [];
+  selezionato: Postit;
   barzelletta: string;
   //istanzio un oggetto di tipo del servizio chuck
-  constructor(private joke: ChuckService){ };
-  seleziona(testo: string) {
-    this.selezionato = testo;
-  }
+  constructor(private obj: ChuckService){ };
+  /*
   clean() {
     this.selezionato=undefined;
-  }
+  }*/
   test(){
-    let obs = this.joke.getData().subscribe( 
-      (x:any)=>{ console.log(x.value)},
+    let obs = this.obj.getData().subscribe( 
+      (x:any)=>{ console.log(x)},
        err => console.error('Observer got an error: ' + err)
     )
   }
+  ShowPost(id) {
+    this.obj.getData().subscribe(
+      ( x: any ) => {
+        this.selezionato.titolo = x[id].titolo,
+        this.selezionato.testo =  x[id].testo
+      },
+      err => console.error('Observer got an error: ' + err)
+    );
+ }
+  Gettitle() {
+    this.obj.getData().subscribe(
+      ( x: any ) => {
+        for (var key in x) {
+        var y = x[key].titolo;
+        this.ids.push(key);
+        }
+      },
+      
+      err => console.error('Observer got an error: ' + err)
+    );
+ }
+  addPost(newPost: string) {
+    this.posts.push(newPost);
+  }
+
 }

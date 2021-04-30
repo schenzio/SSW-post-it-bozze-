@@ -9,7 +9,8 @@ import { HttpClient, HttpHandler } from '@angular/common/http';
 })
 
 export class ChuckService {
-  apiURL: string = "https://api.chucknorris.io/jokes/random";
+  //apiURL: string = "https://api.chucknorris.io/jokes/random";
+  apiURL: string = "https://api.keyvalue.xyz/5658665f/myKey";
   //costruisco un oggetto della classe HttpClient (importata) chiamato http
   constructor(private http: HttpClient) {}
 

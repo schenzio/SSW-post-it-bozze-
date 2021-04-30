@@ -1,3 +1,15 @@
-<p>
-visualizza-pi works!
+<!--<p *ngIf = "selezioneC!== undefined">
+  {{selezioneC.titolo}}{{selezioneC.testo}} 
+  <button (click) = 'clean()'>Chiudi</button>
+</p>-->
+
+
+<!--direttiva *ngIF(condizione)-> visualizza un certo contenuto se la condizione è rispettata
+<p *ngIf = "selezionato !== undefined">
+  {{selezionato}}<br/><button (click) = 'clean()'>Chiudi</button>
+</p>-->
+<p *ngIf = "selezionatoC !== undefined">
+  {{selezionato.titolo}}{{selezionato.testo}} 
+  <br/><button (click) = 'clean()'>Chiudi</button>
 </p>
+vpworks

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {postit} from '..//app.component';
+import { Component, Input, OnInit } from '@angular/core';
+import { Postit } from '..//app.component';
 
 @Component({
   selector: 'app-visualizza-pi',
@@ -7,7 +7,7 @@ import {postit} from '..//app.component';
   styleUrls: ['./visualizza-pi.component.css']
 })
 export class VisualizzaPiComponent implements OnInit {
-
+ // @Input() selezionato: Postit;
   constructor() { }
 
   ngOnInit() {

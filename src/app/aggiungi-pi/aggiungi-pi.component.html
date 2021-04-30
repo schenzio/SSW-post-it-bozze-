@@ -1,3 +1,6 @@
-<textarea></textarea>
+<label>Titolo:</label><br/>
+<input #newTitle (keyup.enter)="newPost(nuovo.value); newTitle.value=''" /><br/>
+<label>Testo:</label><br/>
+<textarea #newBody (keyup.enter)="newPost(nuovo.value); newBody.value=''"></textarea>
 <br/>
 <button>salva</button>

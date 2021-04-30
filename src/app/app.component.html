@@ -1,19 +1,18 @@
 <h1> {{title}} </h1>
-<button><b>+</b> nuovo</button><br/>
-<app-aggiungi-pi></app-aggiungi-pi>
+
+<app-aggiungi-pi (newPostEvent)="addPost($event)"></app-aggiungi-pi>
 <ul>
   <!-- 
     *ngFor (abbreviazione di ngForOf) itera sull'array cities e stampa i valori degli oggetti al suo interno
   !-->
   <li *ngFor='let postit of postits'>
-    <!--<p>{{postit.testo.slice(0,9)}}...</p>-->
-    {{postit.testo.slice(0,9)}}... 
+    <!--<p>{{postit.testo.slice(0,9)}}...</p>
+    [selezionato]="selezionato"
+    -->
+    {{postit}}
     <button (click)='seleziona(postit.testo)'>apri</button>
   </li>
 </ul>
-<!--direttiva *ngIF(condizione)-> visualizza un certo contenuto se la condizione è rispettata-->
-<p *ngIf = "selezionato !== undefined">
-  {{selezionato}}<br/><button (click) = 'clean()'>Chiudi</button>
-</p>
+
 <button (click) = 'test()'>test</button>
-{{barzelletta}}
+<app-visualizza-pi  > </app-visualizza-pi>
